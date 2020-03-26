@@ -29,7 +29,8 @@ final class NetworkService {
                          "chart" : "mostPopular",
                          "pageToken" : pageToken,
                          "regionCode" : "RU",
-                         "key": apiKey]
+                         "maxResults" : 10,
+                         "key": apiKey] as [String : Any]
 
         requestt(url: linkUrl, parametrs: convertParametrs(parametrs)) { ( listVideo : YouTubeList?, error) in
             completion?(listVideo, error)
@@ -64,7 +65,7 @@ final class NetworkService {
         
     }
     
-    private func convertParametrs(_ paramets : [String : String]) -> String {
+    private func convertParametrs(_ paramets : [String : Any]) -> String {
         var components : String = "?"
         paramets.forEach { (item) in
             components += "&" + "\(item.key)=\(item.value)"

@@ -16,6 +16,8 @@
 		843CE02E242B858000B88638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843CE02C242B858000B88638 /* LaunchScreen.storyboard */; };
 		843CE039242B858100B88638 /* YouTubeListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE038242B858100B88638 /* YouTubeListTests.swift */; };
 		843CE044242B858100B88638 /* YouTubeListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE043242B858100B88638 /* YouTubeListUITests.swift */; };
+		843CE053242B872300B88638 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE052242B872300B88638 /* NetworkService.swift */; };
+		843CE056242BA3CC00B88638 /* YouTubeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE055242BA3CC00B88638 /* YouTubeList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		843CE03F242B858100B88638 /* YouTubeListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YouTubeListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		843CE043242B858100B88638 /* YouTubeListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeListUITests.swift; sourceTree = "<group>"; };
 		843CE045242B858100B88638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		843CE052242B872300B88638 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		843CE055242BA3CC00B88638 /* YouTubeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 		843CE01D242B857500B88638 /* YouTubeList */ = {
 			isa = PBXGroup;
 			children = (
+				843CE054242BA3AA00B88638 /* Models */,
+				843CE051242B862000B88638 /* Service */,
 				843CE01E242B857500B88638 /* AppDelegate.swift */,
 				843CE020242B857500B88638 /* SceneDelegate.swift */,
 				843CE022242B857500B88638 /* ViewController.swift */,
@@ -129,6 +135,22 @@
 				843CE045242B858100B88638 /* Info.plist */,
 			);
 			path = YouTubeListUITests;
+			sourceTree = "<group>";
+		};
+		843CE051242B862000B88638 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				843CE052242B872300B88638 /* NetworkService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		843CE054242BA3AA00B88638 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				843CE055242BA3CC00B88638 /* YouTubeList.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +284,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843CE053242B872300B88638 /* NetworkService.swift in Sources */,
 				843CE023242B857500B88638 /* ViewController.swift in Sources */,
+				843CE056242BA3CC00B88638 /* YouTubeList.swift in Sources */,
 				843CE029242B857600B88638 /* YouTubeList.xcdatamodeld in Sources */,
 				843CE01F242B857500B88638 /* AppDelegate.swift in Sources */,
 				843CE021242B857500B88638 /* SceneDelegate.swift in Sources */,

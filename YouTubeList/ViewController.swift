@@ -10,8 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    fileprivate let network: NetworkService = .shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        network.getList()
         // Do any additional setup after loading the view.
     }
 

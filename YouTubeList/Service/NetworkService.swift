@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NetworkService {
+final class NetworkService {
     
     static let shared = NetworkService()
     private init() {}
@@ -22,7 +22,7 @@ class NetworkService {
         case Get = "GET", Post = "POST"
     }
     
-    func getList() {
+    func getList(_ completion : GenericCompletion<YouTubeList>?) {
         
         let linkUrl = "videos"
         let parametrs = ["part" : "snippet",
@@ -31,7 +31,7 @@ class NetworkService {
                          "key": apiKey]
 
         requestt(url: linkUrl, parametrs: convertParametrs(parametrs)) { ( listVideo : YouTubeList?, error) in
-           //print(listVideo, error)
+            completion?(listVideo, error)
         }
         
     }

@@ -12,12 +12,13 @@ class ListTableVC: UITableViewController {
     
     fileprivate let network: NetworkService = .shared
     var list = [Video]()
+    var nextPageToken : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = StringResource.titleList
-        loadList()
+        loadList(pageToken: nextPageToken)
     }
 
     // MARK: - Table view data source
@@ -32,15 +33,16 @@ class ListTableVC: UITableViewController {
         return list.count
     }
     
-    func loadList() {
+    func loadList(pageToken: String) {
         
-        network.getList { (response, error) in
+        network.getList(pageToken : pageToken) { (response, error) in
             
             if let currentError = error {
                 ErrorService.setError(viewController: self, titelError: StringResource.error, messageError: currentError.localizedDescription)
             } else {
                 guard let currentResponse = response else { return }
-                self.list = currentResponse.items
+                self.list += currentResponse.items
+                self.nextPageToken = currentResponse.nextPageToken
                 print(self.list)
             }
             DispatchQueue.main.async {

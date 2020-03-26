@@ -22,11 +22,12 @@ final class NetworkService {
         case Get = "GET", Post = "POST"
     }
     
-    func getList(_ completion : GenericCompletion<YouTubeList>?) {
+    func getList(pageToken : String = "",_ completion : GenericCompletion<YouTubeList>?) {
         
         let linkUrl = "videos"
         let parametrs = ["part" : "snippet",
                          "chart" : "mostPopular",
+                         "pageToken" : pageToken,
                          "regionCode" : "RU",
                          "key": apiKey]
 

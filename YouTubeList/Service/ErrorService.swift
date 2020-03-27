@@ -14,7 +14,7 @@ class ErrorService {
     static let shared = ErrorService()
     private init() {}
     
-    static func setError(viewController: UIViewController, titelError: String? = StringResource.error, messageError : String? = StringResource.error) {
+    func setError(viewController: UIViewController, titelError: String? = StringResource.error, messageError : String? = StringResource.error) {
         let alert = UIAlertController(title: titelError, message: messageError, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: StringResource.okString, style: .default) { (_) in })
         viewController.present(alert, animated: true, completion: nil)

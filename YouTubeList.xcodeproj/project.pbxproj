@@ -21,6 +21,7 @@
 		843CE05E242C87DC00B88638 /* StringResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE05D242C87DC00B88638 /* StringResource.swift */; };
 		843CE060242C8C6C00B88638 /* ErrorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE05F242C8C6C00B88638 /* ErrorService.swift */; };
 		843CE064242C90AC00B88638 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE063242C90AC00B88638 /* VideoCell.swift */; };
+		843CE066242C9E1C00B88638 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE065242C9E1B00B88638 /* DetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		843CE05D242C87DC00B88638 /* StringResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringResource.swift; sourceTree = "<group>"; };
 		843CE05F242C8C6C00B88638 /* ErrorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorService.swift; sourceTree = "<group>"; };
 		843CE063242C90AC00B88638 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		843CE065242C9E1B00B88638 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				843CE05B242C876A00B88638 /* ListTableVC.swift */,
+				843CE065242C9E1B00B88638 /* DetailVC.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				843CE064242C90AC00B88638 /* VideoCell.swift in Sources */,
 				843CE029242B857600B88638 /* YouTubeList.xcdatamodeld in Sources */,
 				843CE05C242C876A00B88638 /* ListTableVC.swift in Sources */,
+				843CE066242C9E1C00B88638 /* DetailVC.swift in Sources */,
 				843CE01F242B857500B88638 /* AppDelegate.swift in Sources */,
 				843CE05E242C87DC00B88638 /* StringResource.swift in Sources */,
 				843CE021242B857500B88638 /* SceneDelegate.swift in Sources */,

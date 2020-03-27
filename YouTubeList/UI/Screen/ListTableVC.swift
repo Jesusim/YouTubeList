@@ -8,17 +8,49 @@
 
 import UIKit
 
-class ListTableVC: UITableViewController {
+class ListTableVC: UITableViewController, UISearchBarDelegate {
     
     fileprivate let network: NetworkService = .shared
+    let refreshView = UIRefreshControl()
+    
+    lazy private var activityIndicator : UIActivityIndicatorView = {
+        let rect = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return UIActivityIndicatorView(frame: rect)
+    }()
+    
     var list = [Video]()
-    var nextPageToken : String = ""
+    private var nextPageToken : String = ""
+    private var searchText : String = ""
+    private var total : Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = StringResource.titleList
-        loadList(pageToken: nextPageToken)
+        setSearchVC()
+        setRefresher()
+    }
+    
+    private func setSearchVC() {
+        let searchController = UISearchController()
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = StringResource.searchPlaceholder
+        searchController.searchBar.setValue(StringResource.сancel, forKey: "cancelButtonText")
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+    }
+    
+    private func setRefresher() {
+        refreshView.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        refreshControl = refreshView
+    }
+    
+    @objc func refresh() {
+        searchText = ""
+        nextPageToken = ""
+        list.removeAll()
+        tableView.reloadData()
+        refreshView.endRefreshing()
     }
 
     // MARK: - Table view data source
@@ -32,99 +64,97 @@ class ListTableVC: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return list.count
     }
-    
-    func loadList(pageToken: String) {
-        
-        network.getList(pageToken : pageToken) { (response, error) in
-            
-            if let currentError = error {
-                ErrorService.setError(viewController: self, titelError: StringResource.error, messageError: currentError.localizedDescription)
-            } else {
-                guard let currentResponse = response else { return }
-                self.list += currentResponse.items
-                self.nextPageToken = currentResponse.nextPageToken
-                print(self.list)
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        
-    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! VideoCell
 
         cell.title.text = list[indexPath.row].snippet.title
         cell.descriptionVideo.text = list[indexPath.row].snippet.description
-        guard let thumbnailsUrlString =  list[indexPath.row].snippet.thumbnails.standard?.url else { return  cell}
-        dowloadImageAndSetIt(cell: cell, stringUrl:  thumbnailsUrlString)
-
+        
+        DispatchQueue.global().async {
+            guard let data = self.list[indexPath.row].snippet.thumbnails?.medium?.getDataByURL() else { return }
+            DispatchQueue.main.async {
+                cell.imageThumbnail.image = UIImage(data: data)
+            }
+        }
+  
         return cell
     }
     
-    func dowloadImageAndSetIt(cell : VideoCell, stringUrl : String) {
+    // MARK: - Pagination
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let currentTotal = total else { return }
+        if indexPath.row == list.count - 1 && currentTotal >= list.count && list.count >= 20  {
+            loadList(searchText: searchText)
+        }
+    }
+    
+    // MARK: - Search
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text?.replacingOccurrences(of: " ", with: "+") else { return }
+        loadList(searchText: searchText)
+    }
+    
+    private func loadList(searchText : String) {
         
-        DispatchQueue.global().async {
+        addActivityIndicator()
+        
+        network.searchVideo(searchText: searchText, nextPageToken: self.nextPageToken) { (response , error) in
             
-            guard
-                let url = URL(string: stringUrl),
-                let data = try? Data(contentsOf: url)
-            else { return }
-            
-            DispatchQueue.main.async {
+            if let currentError = error {
                 
-                cell.imageThumbnail.image = UIImage(data: data)
+                ErrorService.shared.setError(viewController: self, titelError: StringResource.error, messageError: currentError.localizedDescription)
                 
+            } else {
+
+                guard let currentResponse = response else { return }
+                self.setResponseElment(response: currentResponse, searchText: searchText)
+
             }
+            
+            self.removeActivityIndicator()
+            self.tableView.reloadData()
             
         }
         
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    private func setResponseElment(response : YouTubeList, searchText : String) {
+        if let item = response.items {
+            setItem(item: item, searchElement: self.searchText == searchText)
+            nextPageToken = response.nextPageToken ?? ""
+            total = response.pageInfo?.totalResults
+            self.searchText = searchText
+        } else {
+            ErrorService.shared.setError(viewController: self, titelError: StringResource.error, messageError: StringResource.error)
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    private func setItem(item : [Video], searchElement: Bool) {
+        if searchElement {
+            self.list += item
+        } else {
+            self.list = item
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    private func addActivityIndicator() {
+        activityIndicator.color = .red
+        activityIndicator.startAnimating()
+        tableView.tableFooterView = activityIndicator
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    private func removeActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    // MARK: prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
+        let detailVC = segue.destination as? DetailVC
+        detailVC?.video = list[indexPath.row]
     }
-    */
-
+    
 }

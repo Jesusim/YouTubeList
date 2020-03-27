@@ -14,7 +14,7 @@ final class NetworkService {
     private init() {}
     
     private let baseURL = "https://www.googleapis.com/youtube/v3/"
-    private let apiKey = "AIzaSyAx45WrlyGIKUNpRFnxfHPD2ueJku2aBdU"
+    private let apiKey = "AIzaSyAuh39-YurQ2O56RC2tCBg2oaoWXCdZrWQ"//"AIzaSyAx45WrlyGIKUNpRFnxfHPD2ueJku2aBdU"
     
     typealias GenericCompletion<T> = (T?, Error?) -> ()
     
@@ -22,17 +22,26 @@ final class NetworkService {
         case Get = "GET", Post = "POST"
     }
     
-    func getList(pageToken : String = "",_ completion : GenericCompletion<YouTubeList>?) {
+    func searchVideo(searchText : String = "", nextPageToken: String = "", _ completion : GenericCompletion<YouTubeList>?) {
         
-        let linkUrl = "videos"
+        let linkUrl = "search"
+        guard let encodingUrl = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        
         let parametrs = ["part" : "snippet",
-                         "chart" : "mostPopular",
-                         "pageToken" : pageToken,
-                         "regionCode" : "RU",
-                         "key": apiKey]
-
+                         "order" : "title",
+                         "videoCaption" : "closedCaption",
+                         "type" : "video",
+                         "pageToken": nextPageToken,
+                         "maxResults" : 20,
+                         "q" : encodingUrl,
+                         "key": apiKey] as [String : Any]
+        
         requestt(url: linkUrl, parametrs: convertParametrs(parametrs)) { ( listVideo : YouTubeList?, error) in
-            completion?(listVideo, error)
+            
+            DispatchQueue.main.async {
+                completion?(listVideo, error)
+            }
+            
         }
         
     }
@@ -64,7 +73,7 @@ final class NetworkService {
         
     }
     
-    private func convertParametrs(_ paramets : [String : String]) -> String {
+    private func convertParametrs(_ paramets : [String : Any]) -> String {
         var components : String = "?"
         paramets.forEach { (item) in
             components += "&" + "\(item.key)=\(item.value)"
@@ -73,5 +82,3 @@ final class NetworkService {
     }
     
 }
-
-

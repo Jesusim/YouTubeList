@@ -95,7 +95,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="788"/>
                                 <subviews>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="L70-Al-F1c">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="485.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="543.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZ2-Bg-SC6">
                                                 <rect key="frame" x="10" y="10" width="394" height="21"/>
@@ -107,8 +107,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xl1-1f-ITS">
-                                                <rect key="frame" x="10" y="292" width="394" height="183.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <rect key="frame" x="10" y="350" width="394" height="183.5"/>
+                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="394" id="B6U-FA-Xk0"/>
                                                 </constraints>
@@ -124,26 +124,61 @@
                                                     <constraint firstAttribute="width" constant="374" id="mWB-ps-TjW"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chanel name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aI-3K-Tr1">
+                                                <rect key="frame" x="20" y="290" width="374" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="H78-eN-jsu"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PublishedAt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGO-5f-qXc">
+                                                <rect key="frame" x="20" y="319" width="374" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrJ-tp-UKY">
+                                                <rect key="frame" x="158" y="159" width="98" height="22"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Play video" image="play.fill" catalog="system">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" red="0.15341449870000001" green="0.15341449870000001" blue="0.15341449870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="playVideo:" destination="dN1-CP-rtO" eventType="touchUpInside" id="vsd-rn-rwZ"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="wZ2-Bg-SC6" firstAttribute="leading" secondItem="L70-Al-F1c" secondAttribute="leading" constant="10" id="0uC-8A-IHC"/>
+                                            <constraint firstItem="9aI-3K-Tr1" firstAttribute="leading" secondItem="L70-Al-F1c" secondAttribute="leading" constant="20" id="3Te-gR-OBr"/>
                                             <constraint firstAttribute="trailing" secondItem="Xl1-1f-ITS" secondAttribute="trailing" constant="10" id="4Vq-cD-gMF"/>
                                             <constraint firstItem="3X7-Oh-p68" firstAttribute="leading" secondItem="L70-Al-F1c" secondAttribute="leading" constant="20" id="5vv-oA-58I"/>
+                                            <constraint firstItem="UGO-5f-qXc" firstAttribute="leading" secondItem="L70-Al-F1c" secondAttribute="leading" constant="20" id="A1D-cl-Qpn"/>
                                             <constraint firstItem="3X7-Oh-p68" firstAttribute="top" secondItem="wZ2-Bg-SC6" secondAttribute="bottom" constant="27" id="B2y-Qo-asf"/>
+                                            <constraint firstItem="9aI-3K-Tr1" firstAttribute="top" secondItem="3X7-Oh-p68" secondAttribute="bottom" constant="8" id="DRo-J1-IsI"/>
                                             <constraint firstAttribute="trailing" secondItem="3X7-Oh-p68" secondAttribute="trailing" constant="20" id="KVU-JB-uyf"/>
+                                            <constraint firstItem="Xl1-1f-ITS" firstAttribute="top" secondItem="UGO-5f-qXc" secondAttribute="bottom" constant="10" id="MH0-Sy-XUx"/>
                                             <constraint firstItem="wZ2-Bg-SC6" firstAttribute="top" secondItem="L70-Al-F1c" secondAttribute="top" constant="10" id="MO0-AC-Cn4"/>
-                                            <constraint firstItem="Xl1-1f-ITS" firstAttribute="top" secondItem="3X7-Oh-p68" secondAttribute="bottom" constant="10" id="Q36-Rw-TpT"/>
                                             <constraint firstAttribute="trailing" secondItem="wZ2-Bg-SC6" secondAttribute="trailing" constant="10" id="Vsd-j5-Qco"/>
                                             <constraint firstAttribute="bottom" secondItem="Xl1-1f-ITS" secondAttribute="bottom" priority="250" constant="10" id="fou-rU-h0q"/>
                                             <constraint firstItem="Xl1-1f-ITS" firstAttribute="leading" secondItem="L70-Al-F1c" secondAttribute="leading" constant="10" id="hmK-aF-DWe"/>
+                                            <constraint firstAttribute="trailing" secondItem="9aI-3K-Tr1" secondAttribute="trailing" constant="20" id="ieq-Ct-He9"/>
+                                            <constraint firstAttribute="trailing" secondItem="UGO-5f-qXc" secondAttribute="trailing" constant="20" id="qkC-aq-wKH"/>
+                                            <constraint firstItem="zrJ-tp-UKY" firstAttribute="centerX" secondItem="3X7-Oh-p68" secondAttribute="centerX" id="vxt-zy-18U"/>
+                                            <constraint firstItem="UGO-5f-qXc" firstAttribute="top" secondItem="9aI-3K-Tr1" secondAttribute="bottom" constant="8" id="wWB-rZ-ZNG"/>
+                                            <constraint firstItem="zrJ-tp-UKY" firstAttribute="centerY" secondItem="3X7-Oh-p68" secondAttribute="centerY" id="yPA-MU-XYs"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="L70-Al-F1c" firstAttribute="top" secondItem="C6w-0e-oZN" secondAttribute="top" id="6nZ-DI-x4E"/>
                                     <constraint firstAttribute="trailing" secondItem="L70-Al-F1c" secondAttribute="trailing" id="ONa-VD-iUW"/>
-                                    <constraint firstAttribute="bottom" secondItem="L70-Al-F1c" secondAttribute="bottom" priority="250" constant="10" id="UBY-Ge-Uvm"/>
+                                    <constraint firstAttribute="bottom" secondItem="L70-Al-F1c" secondAttribute="bottom" priority="249" constant="10" id="UBY-Ge-Uvm"/>
                                     <constraint firstItem="L70-Al-F1c" firstAttribute="leading" secondItem="C6w-0e-oZN" secondAttribute="leading" id="dcW-KJ-Ha3"/>
                                     <constraint firstItem="L70-Al-F1c" firstAttribute="trailing" secondItem="C6w-0e-oZN" secondAttribute="trailing" id="m0g-vV-ASQ"/>
                                 </constraints>
@@ -160,14 +195,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="Bax-hn-yEe"/>
                     <connections>
+                        <outlet property="chanelName" destination="9aI-3K-Tr1" id="BrR-rf-kDs"/>
                         <outlet property="imageThumbnail" destination="3X7-Oh-p68" id="eOS-CE-ds1"/>
+                        <outlet property="publishedAt" destination="UGO-5f-qXc" id="Lhb-8o-KHC"/>
                         <outlet property="textDescription" destination="Xl1-1f-ITS" id="Ssr-Cx-MpA"/>
                         <outlet property="titleVideo" destination="wZ2-Bg-SC6" id="nb9-rU-PIf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBn-WZ-XMg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1679.7101449275362" y="45.535714285714285"/>
+            <point key="canvasLocation" x="1731.8840579710147" y="45.535714285714285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ii3-D4-lG0">
@@ -188,4 +225,7 @@
             <point key="canvasLocation" x="222" y="46"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="play.fill" catalog="system" width="58" height="64"/>
+    </resources>
 </document>

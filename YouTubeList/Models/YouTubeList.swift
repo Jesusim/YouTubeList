@@ -9,16 +9,21 @@
 import Foundation
 
 struct YouTubeList : Codable {
-    let kind : String
-    let etag : String
-    let nextPageToken : String
-    let items : [Video]
+    let kind : String?
+    let etag : String?
+    let nextPageToken : String?
+    let pageInfo : PageInfo?
+    let items : [Video]?
+}
+
+struct PageInfo : Codable {
+    let totalResults : Int?
+    let resultsPerPage : Int?
 }
 
 struct Video : Codable {
-    let kind : String
+    let kind : String?
     let etag : String
-    let id : String
     let snippet : Snippet
 }
 
@@ -28,12 +33,12 @@ struct Snippet : Codable {
     let channelId : String
     let title : String
     let description : String
-    let thumbnails : Thumbnails
+    let thumbnails : Thumbnails?
     let channelTitle : String
     let tags : [String]?
-    let categoryId : String
-    let liveBroadcastContent : String
-    let localized : Localized
+    let categoryId : String?
+    let liveBroadcastContent : String?
+    let localized : Localized?
     
 }
 
@@ -56,7 +61,15 @@ struct Thumbnails : Codable {
 struct ThumbnailsParametrs : Codable {
     
     let url : String
-    let width : Int
-    let height : Int
+    let width : Int?
+    let height : Int?
+    
+    func getDataByURL() -> Data? {
+        guard
+            let url = URL(string: url),
+            let data = try? Data(contentsOf: url)
+        else { return Data() }
+        return data
+    }
     
 }

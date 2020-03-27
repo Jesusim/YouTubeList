@@ -13,4 +13,7 @@ class StringResource {
     static let titleList  = "Список"
     static let error = "Ошибка"
     static let okString = "Ок"
+    static let searchPlaceholder = "Поиск видео"
+    static let сancel = "Назад"
+    
 }

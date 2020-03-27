@@ -14,7 +14,7 @@ final class NetworkService {
     private init() {}
     
     private let baseURL = "https://www.googleapis.com/youtube/v3/"
-    private let apiKey = "AIzaSyAuh39-YurQ2O56RC2tCBg2oaoWXCdZrWQ"//"AIzaSyAx45WrlyGIKUNpRFnxfHPD2ueJku2aBdU"
+    private let apiKey = "AIzaSyAx45WrlyGIKUNpRFnxfHPD2ueJku2aBdU"//"AIzaSyAuh39-YurQ2O56RC2tCBg2oaoWXCdZrWQ"//"AIzaSyAx45WrlyGIKUNpRFnxfHPD2ueJku2aBdU"
     
     typealias GenericCompletion<T> = (T?, Error?) -> ()
     

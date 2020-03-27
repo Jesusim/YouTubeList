@@ -142,7 +142,7 @@ class ListTableVC: UITableViewController, UISearchBarDelegate {
     private func addActivityIndicator() {
         activityIndicator.color = .red
         activityIndicator.startAnimating()
-        tableView.tableFooterView = activityIndicator
+        tableView.backgroundView = activityIndicator
     }
     
     private func removeActivityIndicator() {

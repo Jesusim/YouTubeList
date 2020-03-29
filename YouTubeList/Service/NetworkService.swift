@@ -14,12 +14,31 @@ final class NetworkService {
     private init() {}
     
     private let baseURL = "https://www.googleapis.com/youtube/v3/"
-    private let apiKey = "AIzaSyAx45WrlyGIKUNpRFnxfHPD2ueJku2aBdU"//"AIzaSyAuh39-YurQ2O56RC2tCBg2oaoWXCdZrWQ"//"AIzaSyAx45WrlyGIKUNpRFnxfHPD2ueJku2aBdU"
+    private let apiKey = "AIzaSyAuh39-YurQ2O56RC2tCBg2oaoWXCdZrWQ"//"AIzaSyAx45WrlyGIKUNpRFnxfHPD2ueJku2aBdU"
     
     typealias GenericCompletion<T> = (T?, Error?) -> ()
     
     enum HttpReqwestType : String {
         case Get = "GET", Post = "POST"
+    }
+    
+    func getComments(videoId : String, nextPageToken: String = "", _ completion : GenericCompletion<CommentThreads>?) {
+        let linkUrl = "commentThreads"
+        
+        let parametrs = ["part" : "snippet",
+                         "maxResults": 100,
+                         "order" : "relevance",
+                         "pageToken": nextPageToken,
+                         "videoId" : videoId,
+                         "textFormat" : "plainText",
+                         "key" : apiKey] as [String : Any]
+        
+        requestt(url: linkUrl, parametrs: convertParametrs(parametrs)) { (item: CommentThreads?, error) in
+            DispatchQueue.main.async {
+                completion?(item, error)
+            }
+        }
+        
     }
     
     func searchVideo(searchText : String = "", nextPageToken: String = "", _ completion : GenericCompletion<YouTubeList>?) {
@@ -29,7 +48,6 @@ final class NetworkService {
         
         let parametrs = ["part" : "snippet",
                          "order" : "title",
-                         "videoCaption" : "closedCaption",
                          "type" : "video",
                          "pageToken": nextPageToken,
                          "maxResults" : 20,
@@ -46,6 +64,7 @@ final class NetworkService {
         
     }
     
+    // Send parametr in url
     private func requestt<T: Decodable>(url : String, parametrs : String = "", type : HttpReqwestType = .Get, _ completion: GenericCompletion<T>?) {
         
         let stringToUrl = baseURL + url + parametrs

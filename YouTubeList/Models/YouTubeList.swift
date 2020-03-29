@@ -24,7 +24,13 @@ struct PageInfo : Codable {
 struct Video : Codable {
     let kind : String?
     let etag : String
+    let id : IdInfo?
     let snippet : Snippet
+}
+
+struct IdInfo : Codable {
+    let kind : String?
+    let videoId : String?
 }
 
 struct Snippet : Codable {
@@ -60,16 +66,9 @@ struct Thumbnails : Codable {
 
 struct ThumbnailsParametrs : Codable {
     
-    let url : String
+    let url : String?
     let width : Int?
     let height : Int?
     
-    func getDataByURL() -> Data? {
-        guard
-            let url = URL(string: url),
-            let data = try? Data(contentsOf: url)
-        else { return Data() }
-        return data
-    }
-    
 }
+

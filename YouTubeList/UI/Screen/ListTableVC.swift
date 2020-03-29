@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListTableVC: UITableViewController, UISearchBarDelegate {
+class ListTableVC: UITableViewController, UISearchBarDelegate, LoadImage {
     
     fileprivate let network: NetworkService = .shared
     let refreshView = UIRefreshControl()
@@ -72,11 +72,10 @@ class ListTableVC: UITableViewController, UISearchBarDelegate {
         cell.title.text = list[indexPath.row].snippet.title
         cell.descriptionVideo.text = list[indexPath.row].snippet.description
         
-        DispatchQueue.global().async {
-            guard let data = self.list[indexPath.row].snippet.thumbnails?.medium?.getDataByURL() else { return }
-            DispatchQueue.main.async {
-                cell.imageThumbnail.image = UIImage(data: data)
-            }
+        guard let url = self.list[indexPath.row].snippet.thumbnails?.medium?.url else { return cell }
+        
+        getImageByURl(url: url) { (image) in
+            cell.imageThumbnail.image = image
         }
   
         return cell
@@ -96,6 +95,7 @@ class ListTableVC: UITableViewController, UISearchBarDelegate {
         loadList(searchText: searchText)
     }
     
+    // MARK: - Load new items
     private func loadList(searchText : String) {
         
         addActivityIndicator()
@@ -139,6 +139,7 @@ class ListTableVC: UITableViewController, UISearchBarDelegate {
         }
     }
     
+    // MARK: - Indicator
     private func addActivityIndicator() {
         activityIndicator.color = .red
         activityIndicator.startAnimating()

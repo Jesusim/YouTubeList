@@ -51,7 +51,6 @@ class ListTableVC: UITableViewController, UISearchBarDelegate, SetIndicator {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -134,10 +133,11 @@ class ListTableVC: UITableViewController, UISearchBarDelegate, SetIndicator {
             self.list += item
         } else {
             self.list = item
+            nextPageToken = ""
         }
     }
     
-    // MARK: prepare
+    // MARK: Prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
         let detailVC = segue.destination as? DetailVC

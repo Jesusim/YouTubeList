@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="teg-9d-sfh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="teg-9d-sfh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -160,7 +160,7 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="260" id="jfU-5D-26X"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="127" id="ZSW-At-ydT" customClass="BaseTableViewCell" customModule="YouTubeList" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="Cell" rowHeight="127" id="ZSW-At-ydT" customClass="BaseTableViewCell" customModule="YouTubeList" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="394" height="127"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZSW-At-ydT" id="HPM-To-OAX">
@@ -209,6 +209,7 @@
                                                             <outlet property="imageBaseView" destination="wXG-KK-c2X" id="UY5-tJ-VkI"/>
                                                             <outlet property="textBaseView" destination="m3m-iL-TM5" id="Ngh-hL-gmX"/>
                                                             <outlet property="titleBaseLable" destination="9lR-5k-Ih6" id="fNy-0p-2qQ"/>
+                                                            <segue destination="3ru-Dk-ety" kind="show" id="3XM-KI-InL"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -274,6 +275,81 @@
             </objects>
             <point key="canvasLocation" x="1731.8840579710147" y="45.535714285714285"/>
         </scene>
+        <!--Answer Comment TableVC-->
+        <scene sceneID="CIF-dZ-6QN">
+            <objects>
+                <tableViewController id="3ru-Dk-ety" customClass="AnswerCommentTableVC" customModule="YouTubeList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0o0-oA-V6W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="170" id="smP-ph-WaH" customClass="BaseTableViewCell" customModule="YouTubeList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="170"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="smP-ph-WaH" id="MhG-W7-tb4">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lo8-VW-bZj">
+                                            <rect key="frame" x="20" y="11" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="Nxo-x4-GeG"/>
+                                                <constraint firstAttribute="height" constant="50" id="bvw-hr-7Zj"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0A-NH-2G1">
+                                            <rect key="frame" x="88" y="11" width="306" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="254" id="Ndp-tF-U8G"/>
+                                                <constraint firstAttribute="height" constant="21" id="OyE-DK-4ah"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31I-RZ-WZE">
+                                            <rect key="frame" x="88" y="52" width="306" height="97"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="97" id="xQB-s3-jr3"/>
+                                            </constraints>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="G0A-NH-2G1" firstAttribute="trailing" secondItem="MhG-W7-tb4" secondAttribute="trailingMargin" id="1ZG-r9-osG"/>
+                                        <constraint firstItem="lo8-VW-bZj" firstAttribute="leading" secondItem="MhG-W7-tb4" secondAttribute="leadingMargin" id="85q-eq-ium"/>
+                                        <constraint firstItem="G0A-NH-2G1" firstAttribute="leading" secondItem="lo8-VW-bZj" secondAttribute="trailing" constant="18" id="ECS-aZ-uH3"/>
+                                        <constraint firstItem="lo8-VW-bZj" firstAttribute="top" secondItem="MhG-W7-tb4" secondAttribute="topMargin" id="EuY-bL-Nww"/>
+                                        <constraint firstItem="G0A-NH-2G1" firstAttribute="top" secondItem="MhG-W7-tb4" secondAttribute="topMargin" id="PO9-Ni-R2o"/>
+                                        <constraint firstItem="31I-RZ-WZE" firstAttribute="trailing" secondItem="MhG-W7-tb4" secondAttribute="trailingMargin" id="TlM-Nh-MDM"/>
+                                        <constraint firstItem="31I-RZ-WZE" firstAttribute="leading" secondItem="lo8-VW-bZj" secondAttribute="trailing" constant="18" id="Y3y-fL-bIr"/>
+                                        <constraint firstItem="31I-RZ-WZE" firstAttribute="top" secondItem="G0A-NH-2G1" secondAttribute="bottom" constant="20" id="n24-al-HNg"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="31I-RZ-WZE" secondAttribute="bottom" constant="10" id="vvL-gJ-s4P"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageBaseView" destination="lo8-VW-bZj" id="8Ro-2f-1R0"/>
+                                    <outlet property="textBaseView" destination="31I-RZ-WZE" id="L6a-1M-EOi"/>
+                                    <outlet property="titleBaseLable" destination="G0A-NH-2G1" id="fg0-Mh-mFl"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3ru-Dk-ety" id="7bL-el-PXV"/>
+                            <outlet property="delegate" destination="3ru-Dk-ety" id="Qvw-S6-hqc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="5pD-Dg-vg9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hLe-28-q1O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2553.6231884057975" y="45.535714285714285"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ii3-D4-lG0">
             <objects>
@@ -294,6 +370,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="play.fill" catalog="system" width="58" height="64"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
     </resources>
 </document>

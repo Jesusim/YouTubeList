@@ -36,6 +36,8 @@ class DetailVC: UIViewController, SetIndicator {
     
     func setElementView() {
         
+        navigationItem.title = StringResource.titleVideoDetail
+        
         titleVideo.text = video?.snippet.title
         textDescription.text = video?.snippet.description
         chanelName.text = video?.snippet.channelTitle
@@ -59,7 +61,9 @@ class DetailVC: UIViewController, SetIndicator {
         switchLoadNewCooment = false
         addActivityIndicator(tableView: commentTableView)
         
-        network.getComments(videoId: (video?.id?.videoId)!, nextPageToken: nextPageCommentToken) { (item, error) in
+        guard let id = video?.id?.videoId else { return }
+        
+        network.getComments(videoId: id, nextPageToken: nextPageCommentToken) { (response, error) in
             
             self.removeActivityIndicator()
             if error != nil {
@@ -69,12 +73,12 @@ class DetailVC: UIViewController, SetIndicator {
             } else {
                 
                 guard
-                    let response = item,
-                    let currentItem = response.items
+                    let currentResponse = response,
+                    let currentItem = currentResponse.items
                     else { return }
                 self.setCooments(currentItem)
                 
-                guard let pageToken = response.nextPageToken else { return }
+                guard let pageToken = currentResponse.nextPageToken else { return }
                 self.nextPageCommentToken = pageToken
                 
             }
@@ -119,7 +123,13 @@ class DetailVC: UIViewController, SetIndicator {
             player.play()
         }
     }
- 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = self.commentTableView.indexPathForSelectedRow else { return }
+        let answerCommentTableVC = segue.destination as? AnswerCommentTableVC
+        answerCommentTableVC?.parentId = listComment[indexPath.row].id
+    }
+    
 }
 
 extension DetailVC : UITableViewDelegate, UITableViewDataSource {

@@ -26,6 +26,7 @@
 		84EF940E242E445D00713326 /* SelfSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF940D242E445C00713326 /* SelfSizedTableView.swift */; };
 		84F0B30A2431EE3A002A4E4C /* SetIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0B3092431EE3A002A4E4C /* SetIndicator.swift */; };
 		84F0B30E24321514002A4E4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0B30D24321514002A4E4C /* ViewController.swift */; };
+		84F0B3102432261A002A4E4C /* AnswerCommentTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0B30F2432261A002A4E4C /* AnswerCommentTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		84EF940D242E445C00713326 /* SelfSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedTableView.swift; sourceTree = "<group>"; };
 		84F0B3092431EE3A002A4E4C /* SetIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetIndicator.swift; sourceTree = "<group>"; };
 		84F0B30D24321514002A4E4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		84F0B30F2432261A002A4E4C /* AnswerCommentTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCommentTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			children = (
 				843CE05B242C876A00B88638 /* ListTableVC.swift */,
 				843CE065242C9E1B00B88638 /* DetailVC.swift */,
+				84F0B30F2432261A002A4E4C /* AnswerCommentTableVC.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				843CE029242B857600B88638 /* YouTubeList.xcdatamodeld in Sources */,
 				843CE05C242C876A00B88638 /* ListTableVC.swift in Sources */,
 				843CE066242C9E1C00B88638 /* DetailVC.swift in Sources */,
+				84F0B3102432261A002A4E4C /* AnswerCommentTableVC.swift in Sources */,
 				84EF9407242DEA0100713326 /* CommentThreads.swift in Sources */,
 				843CE01F242B857500B88638 /* AppDelegate.swift in Sources */,
 				843CE05E242C87DC00B88638 /* StringResource.swift in Sources */,

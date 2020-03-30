@@ -22,6 +22,24 @@ final class NetworkService {
         case Get = "GET", Post = "POST"
     }
     
+    func getAnswersComment(parentId: String = "", nextPageToken: String = "", _ completion : GenericCompletion<CommentThreads>?) {
+        
+        let linkUrl = "comments"
+        
+        let parametrs = ["part" : "snippet",
+                         "maxResults": 50,
+                         "parentId": parentId,
+                         "pageToken": nextPageToken,
+                         "textFormat" : "plainText",
+                         "key" : apiKey] as [String : Any]
+        
+        request(url: linkUrl, parametrs: convertParametrs(parametrs)) { (item : CommentThreads?, error) in
+            DispatchQueue.main.async {
+                completion?(item, error)
+            }
+        }
+    }
+    
     func getComments(videoId : String, nextPageToken: String = "", _ completion : GenericCompletion<CommentThreads>?) {
         let linkUrl = "commentThreads"
         
@@ -47,7 +65,7 @@ final class NetworkService {
         guard let encodingUrl = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         
         let parametrs = ["part" : "snippet",
-                         "order" : "title",
+                         "order" : "viewCount",
                          "type" : "video",
                          "pageToken": nextPageToken,
                          "maxResults" : 20,

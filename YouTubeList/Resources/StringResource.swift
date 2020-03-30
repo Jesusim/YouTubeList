@@ -15,5 +15,7 @@ class StringResource {
     static let okString = "Ок"
     static let searchPlaceholder = "Поиск видео"
     static let сancel = "Назад"
+    static let titleVideoDetail = "Информация о видео"
+    static let titelAnswerComment = "Ответы"
     
 }

@@ -17,11 +17,15 @@ class DetailVC: UIViewController, LoadImage {
     @IBOutlet weak var chanelName: UILabel!
     @IBOutlet weak var publishedAt: UILabel!
     @IBOutlet weak var commentTableView: SelfSizedTableView!
+    @IBOutlet weak var scrollViewDetail: UIScrollView!
     
     fileprivate let network: NetworkService = .shared
     
     var video : Video?
     var listComment = [Comment]()
+    
+    private var nextPageCommentToken : String = ""
+    private var switchLoadNewCooment = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +40,8 @@ class DetailVC: UIViewController, LoadImage {
         chanelName.text = video?.snippet.channelTitle
         publishedAt.text = video?.snippet.publishedAt
         
+        scrollViewDetail.delegate = self
+        
         commentTableView.delegate = self
         commentTableView.dataSource = self
         
@@ -49,21 +55,53 @@ class DetailVC: UIViewController, LoadImage {
     
     func loadComments() {
         
-        network.getComments(videoId: (video?.id?.videoId)!, nextPageToken: "") { (item, error) in
+        switchLoadNewCooment = false
+        
+        network.getComments(videoId: (video?.id?.videoId)!, nextPageToken: nextPageCommentToken) { (item, error) in
             
-            guard
-                let response = item,
-                let currentItem = response.items
-            else { return }
-            
-            self.listComment = currentItem
-            
-            DispatchQueue.main.async {
-                self.commentTableView.reloadData()
+            if error != nil {
+                
+                ErrorService.shared.setError(viewController: self, titelError: StringResource.error, messageError: error?.localizedDescription)
+                
+            } else {
+                
+                guard
+                    let response = item,
+                    let currentItem = response.items
+                    else { return }
+                self.setCooments(currentItem)
+                
+                guard let pageToken = response.nextPageToken else { return }
+                self.nextPageCommentToken = pageToken
+                
             }
             
         }
         
+    }
+    
+    
+    func setCooments(_ currentItem : [Comment]) {
+        
+        self.listComment += currentItem
+        
+        DispatchQueue.main.async {
+            self.commentTableView.reloadData()
+            self.switchLoadNewCooment = true
+        }
+        
+    }
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        
+        if distanceFromBottom < height && switchLoadNewCooment && nextPageCommentToken != "" {
+            loadComments()
+        }
     }
     
     @IBAction func playVideo(_ sender: Any) {

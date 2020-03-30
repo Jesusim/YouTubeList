@@ -168,7 +168,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3m-iL-TM5">
-                                                                    <rect key="frame" x="120.5" y="37" width="253.5" height="118.5"/>
+                                                                    <rect key="frame" x="119" y="37" width="255" height="118.5"/>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -176,7 +176,7 @@
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lR-5k-Ih6">
-                                                                    <rect key="frame" x="120.5" y="11" width="253.5" height="21"/>
+                                                                    <rect key="frame" x="119" y="11" width="255" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="254" id="cDx-9w-vj4"/>
                                                                     </constraints>
@@ -185,9 +185,10 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wXG-KK-c2X">
-                                                                    <rect key="frame" x="10" y="10" width="91.5" height="91.5"/>
+                                                                    <rect key="frame" x="10" y="10" width="90" height="90"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="wXG-KK-c2X" secondAttribute="height" multiplier="1:1" id="Bwy-b3-RcL"/>
+                                                                        <constraint firstAttribute="width" constant="90" id="Qg4-iq-tjf"/>
+                                                                        <constraint firstAttribute="height" constant="90" id="q4o-Yp-DNl"/>
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
@@ -197,7 +198,7 @@
                                                                 <constraint firstItem="9lR-5k-Ih6" firstAttribute="leading" secondItem="wXG-KK-c2X" secondAttribute="trailing" constant="19" id="9Pm-OZ-5eM"/>
                                                                 <constraint firstItem="m3m-iL-TM5" firstAttribute="leading" secondItem="wXG-KK-c2X" secondAttribute="trailing" constant="19" id="DNg-mF-G4E"/>
                                                                 <constraint firstAttribute="trailing" secondItem="m3m-iL-TM5" secondAttribute="trailing" constant="20" id="EiQ-sF-C2p"/>
-                                                                <constraint firstAttribute="bottom" secondItem="wXG-KK-c2X" secondAttribute="bottom" constant="65" id="Kfi-yi-NJg"/>
+                                                                <constraint firstAttribute="bottom" secondItem="wXG-KK-c2X" secondAttribute="bottom" constant="66.5" id="Kfi-yi-NJg"/>
                                                                 <constraint firstAttribute="trailing" secondItem="9lR-5k-Ih6" secondAttribute="trailing" constant="20" id="bJV-nx-OVE"/>
                                                                 <constraint firstItem="m3m-iL-TM5" firstAttribute="top" secondItem="9lR-5k-Ih6" secondAttribute="bottom" constant="5" id="i2t-2a-Dq2"/>
                                                                 <constraint firstItem="wXG-KK-c2X" firstAttribute="leading" secondItem="HPM-To-OAX" secondAttribute="leading" constant="10" id="n2k-ZA-5Q2"/>
@@ -264,6 +265,7 @@
                         <outlet property="commentTableView" destination="dVV-2Z-WeR" id="XUX-KI-hRL"/>
                         <outlet property="imageThumbnail" destination="3X7-Oh-p68" id="eOS-CE-ds1"/>
                         <outlet property="publishedAt" destination="UGO-5f-qXc" id="Lhb-8o-KHC"/>
+                        <outlet property="scrollViewDetail" destination="C6w-0e-oZN" id="l64-a9-MoH"/>
                         <outlet property="textDescription" destination="Xl1-1f-ITS" id="Ssr-Cx-MpA"/>
                         <outlet property="titleVideo" destination="wZ2-Bg-SC6" id="nb9-rU-PIf"/>
                     </connections>

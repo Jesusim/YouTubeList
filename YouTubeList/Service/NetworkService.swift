@@ -18,8 +18,27 @@ final class NetworkService {
     
     typealias GenericCompletion<T> = (T?, Error?) -> ()
     
-    enum HttpReqwestType : String {
+    enum HttpRequestType : String {
         case Get = "GET", Post = "POST"
+    }
+    
+    func getComments(videoId : String, nextPageToken: String = "", _ completion : GenericCompletion<CommentThreads>?) {
+        let linkUrl = "commentThreads"
+        
+        let parametrs = ["part" : "snippet",
+                         "maxResults": 100,
+                         "order" : "relevance",
+                         "pageToken": nextPageToken,
+                         "videoId" : videoId,
+                         "textFormat" : "plainText",
+                         "key" : apiKey] as [String : Any]
+        
+        request(url: linkUrl, parametrs: convertParametrs(parametrs)) { (item: CommentThreads?, error) in
+            DispatchQueue.main.async {
+                completion?(item, error)
+            }
+        }
+        
     }
     
     func searchVideo(searchText : String = "", nextPageToken: String = "", _ completion : GenericCompletion<YouTubeList>?) {
@@ -29,14 +48,13 @@ final class NetworkService {
         
         let parametrs = ["part" : "snippet",
                          "order" : "title",
-                         "videoCaption" : "closedCaption",
                          "type" : "video",
                          "pageToken": nextPageToken,
                          "maxResults" : 20,
                          "q" : encodingUrl,
                          "key": apiKey] as [String : Any]
         
-        requestt(url: linkUrl, parametrs: convertParametrs(parametrs)) { ( listVideo : YouTubeList?, error) in
+        request(url: linkUrl, parametrs: convertParametrs(parametrs)) { ( listVideo : YouTubeList?, error) in
             
             DispatchQueue.main.async {
                 completion?(listVideo, error)
@@ -46,7 +64,8 @@ final class NetworkService {
         
     }
     
-    private func requestt<T: Decodable>(url : String, parametrs : String = "", type : HttpReqwestType = .Get, _ completion: GenericCompletion<T>?) {
+    // Send parametr in url
+    private func request<T: Decodable>(url : String, parametrs : String = "", type : HttpRequestType = .Get, _ completion: GenericCompletion<T>?) {
         
         let stringToUrl = baseURL + url + parametrs
         guard let url = URL(string: stringToUrl) else { return }

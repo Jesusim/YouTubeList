@@ -22,6 +22,10 @@
 		843CE060242C8C6C00B88638 /* ErrorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE05F242C8C6C00B88638 /* ErrorService.swift */; };
 		843CE064242C90AC00B88638 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE063242C90AC00B88638 /* VideoCell.swift */; };
 		843CE066242C9E1C00B88638 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE065242C9E1B00B88638 /* DetailVC.swift */; };
+		84EF9407242DEA0100713326 /* CommentThreads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF9406242DEA0100713326 /* CommentThreads.swift */; };
+		84EF9409242E20C200713326 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF9408242E20C200713326 /* CommentCell.swift */; };
+		84EF940B242E334400713326 /* LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF940A242E334300713326 /* LoadImage.swift */; };
+		84EF940E242E445D00713326 /* SelfSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF940D242E445C00713326 /* SelfSizedTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		843CE05F242C8C6C00B88638 /* ErrorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorService.swift; sourceTree = "<group>"; };
 		843CE063242C90AC00B88638 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		843CE065242C9E1B00B88638 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		84EF9406242DEA0100713326 /* CommentThreads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentThreads.swift; sourceTree = "<group>"; };
+		84EF9408242E20C200713326 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		84EF940A242E334300713326 /* LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImage.swift; sourceTree = "<group>"; };
+		84EF940D242E445C00713326 /* SelfSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				843CE055242BA3CC00B88638 /* YouTubeList.swift */,
+				84EF9406242DEA0100713326 /* CommentThreads.swift */,
+				84EF940A242E334300713326 /* LoadImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,6 +209,7 @@
 		843CE061242C8E6F00B88638 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				84EF940C242E442E00713326 /* Custom */,
 				843CE062242C907F00B88638 /* Cells */,
 				843CE057242C84F000B88638 /* Screen */,
 			);
@@ -209,8 +220,17 @@
 			isa = PBXGroup;
 			children = (
 				843CE063242C90AC00B88638 /* VideoCell.swift */,
+				84EF9408242E20C200713326 /* CommentCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		84EF940C242E442E00713326 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				84EF940D242E445C00713326 /* SelfSizedTableView.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,10 +370,14 @@
 				843CE029242B857600B88638 /* YouTubeList.xcdatamodeld in Sources */,
 				843CE05C242C876A00B88638 /* ListTableVC.swift in Sources */,
 				843CE066242C9E1C00B88638 /* DetailVC.swift in Sources */,
+				84EF9407242DEA0100713326 /* CommentThreads.swift in Sources */,
 				843CE01F242B857500B88638 /* AppDelegate.swift in Sources */,
 				843CE05E242C87DC00B88638 /* StringResource.swift in Sources */,
 				843CE021242B857500B88638 /* SceneDelegate.swift in Sources */,
 				843CE060242C8C6C00B88638 /* ErrorService.swift in Sources */,
+				84EF940E242E445D00713326 /* SelfSizedTableView.swift in Sources */,
+				84EF940B242E334400713326 /* LoadImage.swift in Sources */,
+				84EF9409242E20C200713326 /* CommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

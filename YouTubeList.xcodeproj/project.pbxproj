@@ -23,8 +23,9 @@
 		843CE066242C9E1C00B88638 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE065242C9E1B00B88638 /* DetailVC.swift */; };
 		84C6E9FF2431B98900902585 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6E9FE2431B98900902585 /* BaseTableViewCell.swift */; };
 		84EF9407242DEA0100713326 /* CommentThreads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF9406242DEA0100713326 /* CommentThreads.swift */; };
-		84EF940B242E334400713326 /* LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF940A242E334300713326 /* LoadImage.swift */; };
 		84EF940E242E445D00713326 /* SelfSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF940D242E445C00713326 /* SelfSizedTableView.swift */; };
+		84F0B30A2431EE3A002A4E4C /* SetIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0B3092431EE3A002A4E4C /* SetIndicator.swift */; };
+		84F0B30E24321514002A4E4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0B30D24321514002A4E4C /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +68,9 @@
 		843CE065242C9E1B00B88638 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		84C6E9FE2431B98900902585 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		84EF9406242DEA0100713326 /* CommentThreads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentThreads.swift; sourceTree = "<group>"; };
-		84EF940A242E334300713326 /* LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImage.swift; sourceTree = "<group>"; };
 		84EF940D242E445C00713326 /* SelfSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedTableView.swift; sourceTree = "<group>"; };
+		84F0B3092431EE3A002A4E4C /* SetIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetIndicator.swift; sourceTree = "<group>"; };
+		84F0B30D24321514002A4E4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		843CE01D242B857500B88638 /* YouTubeList */ = {
 			isa = PBXGroup;
 			children = (
+				84F0B30B243214DE002A4E4C /* Extension */,
 				843CE058242C86B200B88638 /* Configuration */,
 				843CE059242C86EF00B88638 /* Resources */,
 				843CE054242BA3AA00B88638 /* Models */,
@@ -164,7 +167,6 @@
 			children = (
 				843CE055242BA3CC00B88638 /* YouTubeList.swift */,
 				84EF9406242DEA0100713326 /* CommentThreads.swift */,
-				84EF940A242E334300713326 /* LoadImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -228,6 +230,23 @@
 				84EF940D242E445C00713326 /* SelfSizedTableView.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		84F0B30B243214DE002A4E4C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				84F0B30C243214E6002A4E4C /* UI */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		84F0B30C243214E6002A4E4C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				84F0B3092431EE3A002A4E4C /* SetIndicator.swift */,
+				84F0B30D24321514002A4E4C /* ViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F0B30E24321514002A4E4C /* ViewController.swift in Sources */,
 				843CE053242B872300B88638 /* NetworkService.swift in Sources */,
 				843CE056242BA3CC00B88638 /* YouTubeList.swift in Sources */,
 				843CE029242B857600B88638 /* YouTubeList.xcdatamodeld in Sources */,
@@ -372,7 +392,7 @@
 				843CE021242B857500B88638 /* SceneDelegate.swift in Sources */,
 				843CE060242C8C6C00B88638 /* ErrorService.swift in Sources */,
 				84EF940E242E445D00713326 /* SelfSizedTableView.swift in Sources */,
-				84EF940B242E334400713326 /* LoadImage.swift in Sources */,
+				84F0B30A2431EE3A002A4E4C /* SetIndicator.swift in Sources */,
 				84C6E9FF2431B98900902585 /* BaseTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

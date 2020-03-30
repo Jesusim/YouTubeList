@@ -8,16 +8,13 @@
 
 import UIKit
 
-class ListTableVC: UITableViewController, UISearchBarDelegate, LoadImage {
+class ListTableVC: UITableViewController, UISearchBarDelegate, SetIndicator {
+    
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     fileprivate let network: NetworkService = .shared
     let refreshView = UIRefreshControl()
-    
-    lazy private var activityIndicator : UIActivityIndicatorView = {
-        let rect = CGRect(x: 0, y: 0, width: 50, height: 50)
-        return UIActivityIndicatorView(frame: rect)
-    }()
-    
+
     var list = [Video]()
     private var nextPageToken : String = ""
     private var searchText : String = ""
@@ -71,6 +68,7 @@ class ListTableVC: UITableViewController, UISearchBarDelegate, LoadImage {
 
         cell.titleBaseLable.text = list[indexPath.row].snippet.title
         cell.textBaseView.text = list[indexPath.row].snippet.description
+        cell.backgroundColor = .clear
         
         guard let url = self.list[indexPath.row].snippet.thumbnails?.medium?.url else { return cell }
         
@@ -98,7 +96,7 @@ class ListTableVC: UITableViewController, UISearchBarDelegate, LoadImage {
     // MARK: - Load new items
     private func loadList(searchText : String) {
         
-        addActivityIndicator()
+        addActivityIndicator(tableView: tableView)
         
         network.searchVideo(searchText: searchText, nextPageToken: self.nextPageToken) { (response , error) in
             
@@ -137,18 +135,6 @@ class ListTableVC: UITableViewController, UISearchBarDelegate, LoadImage {
         } else {
             self.list = item
         }
-    }
-    
-    // MARK: - Indicator
-    private func addActivityIndicator() {
-        activityIndicator.color = .red
-        activityIndicator.startAnimating()
-        tableView.backgroundView = activityIndicator
-    }
-    
-    private func removeActivityIndicator() {
-        activityIndicator.stopAnimating()
-        activityIndicator.removeFromSuperview()
     }
     
     // MARK: prepare

@@ -9,8 +9,9 @@
 import UIKit
 import AVKit
 
-class DetailVC: UIViewController, LoadImage {
+class DetailVC: UIViewController, SetIndicator {
     
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     @IBOutlet weak var titleVideo: UILabel!
     @IBOutlet weak var imageThumbnail: UIImageView!
     @IBOutlet weak var textDescription: UITextView!
@@ -56,9 +57,11 @@ class DetailVC: UIViewController, LoadImage {
     func loadComments() {
         
         switchLoadNewCooment = false
+        addActivityIndicator(tableView: commentTableView)
         
         network.getComments(videoId: (video?.id?.videoId)!, nextPageToken: nextPageCommentToken) { (item, error) in
             
+            self.removeActivityIndicator()
             if error != nil {
                 
                 ErrorService.shared.setError(viewController: self, titelError: StringResource.error, messageError: error?.localizedDescription)
@@ -104,7 +107,7 @@ class DetailVC: UIViewController, LoadImage {
     
     @IBAction func playVideo(_ sender: Any) {
         
-        // Used pre-loaded video by apple because usage youtube framework or WebKit forbidden by specification.
+        // Used pre-loaded video by apple because usage youtube framework forbidden by specification.
         // https://developers.google.com/youtube/iframe_api_reference
         let stringUrl = "https://devstreaming-cdn.apple.com/videos/tutorials/TestFlight_App_Store_Connect_2018/hls_vod_mvp.m3u8"
         guard let url = URL(string: stringUrl) else { return }
@@ -136,6 +139,7 @@ extension DetailVC : UITableViewDelegate, UITableViewDataSource {
         
         cell.titleBaseLable.text = listComment[indexPath.row].snippet?.topLevelComment?.snippet?.authorDisplayName
         cell.textBaseView.text = listComment[indexPath.row].snippet?.topLevelComment?.snippet?.textDisplay
+        cell.backgroundColor = .clear
         
         guard let url = listComment[indexPath.row].snippet?.topLevelComment?.snippet?.authorProfileImageUrl else { return cell }
         getImageByURl(url: url) { (image) in

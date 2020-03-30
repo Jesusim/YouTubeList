@@ -133,15 +133,15 @@ extension DetailVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CommentCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BaseTableViewCell
         
-        cell.nameUser.text = listComment[indexPath.row].snippet?.topLevelComment?.snippet?.authorDisplayName
-        cell.textUser.text = listComment[indexPath.row].snippet?.topLevelComment?.snippet?.textDisplay
+        cell.titleBaseLable.text = listComment[indexPath.row].snippet?.topLevelComment?.snippet?.authorDisplayName
+        cell.textBaseView.text = listComment[indexPath.row].snippet?.topLevelComment?.snippet?.textDisplay
         
         guard let url = listComment[indexPath.row].snippet?.topLevelComment?.snippet?.authorProfileImageUrl else { return cell }
         getImageByURl(url: url) { (image) in
-            cell.imageUser.image = image
-            cell.imageUser.layer.cornerRadius = cell.imageUser.bounds.width / 2
+            cell.imageBaseView.image = image
+            cell.imageBaseView.layer.cornerRadius = cell.imageBaseView.bounds.width / 2
         }
         commentTableView.cellHight = cell.frame.height
         return cell

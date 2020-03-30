@@ -67,15 +67,15 @@ class ListTableVC: UITableViewController, UISearchBarDelegate, LoadImage {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! VideoCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BaseTableViewCell
 
-        cell.title.text = list[indexPath.row].snippet.title
-        cell.descriptionVideo.text = list[indexPath.row].snippet.description
+        cell.titleBaseLable.text = list[indexPath.row].snippet.title
+        cell.textBaseView.text = list[indexPath.row].snippet.description
         
         guard let url = self.list[indexPath.row].snippet.thumbnails?.medium?.url else { return cell }
         
         getImageByURl(url: url) { (image) in
-            cell.imageThumbnail.image = image
+            cell.imageBaseView.image = image
         }
   
         return cell

@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="177" id="bGy-F7-uSu" customClass="VideoCell" customModule="YouTubeList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="177" id="bGy-F7-uSu" customClass="BaseTableViewCell" customModule="YouTubeList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="177"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bGy-F7-uSu" id="ltP-vf-Ai6">
@@ -65,9 +65,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="descriptionVideo" destination="OuD-zu-UZL" id="hJK-V3-5v0"/>
-                                    <outlet property="imageThumbnail" destination="5fc-qt-Tp4" id="G7e-aJ-Rb1"/>
-                                    <outlet property="title" destination="esS-QX-dMr" id="X8S-b4-tQd"/>
+                                    <outlet property="imageBaseView" destination="5fc-qt-Tp4" id="pAG-BQ-cuV"/>
+                                    <outlet property="textBaseView" destination="OuD-zu-UZL" id="Nc6-yN-BuX"/>
+                                    <outlet property="titleBaseLable" destination="esS-QX-dMr" id="Arx-IJ-zv8"/>
                                     <segue destination="dN1-CP-rtO" kind="show" id="YnX-ZC-CAr"/>
                                 </connections>
                             </tableViewCell>
@@ -160,7 +160,7 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="260" id="jfU-5D-26X"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="166.5" id="ZSW-At-ydT" customClass="CommentCell" customModule="YouTubeList" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="166.5" id="ZSW-At-ydT" customClass="BaseTableViewCell" customModule="YouTubeList" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="394" height="166.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZSW-At-ydT" id="HPM-To-OAX">
@@ -206,9 +206,9 @@
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <connections>
-                                                            <outlet property="imageUser" destination="wXG-KK-c2X" id="gUn-7L-9fH"/>
-                                                            <outlet property="nameUser" destination="9lR-5k-Ih6" id="mB5-3J-14f"/>
-                                                            <outlet property="textUser" destination="m3m-iL-TM5" id="sNl-Lm-QaQ"/>
+                                                            <outlet property="imageBaseView" destination="wXG-KK-c2X" id="UY5-tJ-VkI"/>
+                                                            <outlet property="textBaseView" destination="m3m-iL-TM5" id="Ngh-hL-gmX"/>
+                                                            <outlet property="titleBaseLable" destination="9lR-5k-Ih6" id="fNy-0p-2qQ"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>

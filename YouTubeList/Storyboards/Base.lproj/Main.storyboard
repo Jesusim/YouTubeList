@@ -160,15 +160,15 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="260" id="jfU-5D-26X"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="166.5" id="ZSW-At-ydT" customClass="BaseTableViewCell" customModule="YouTubeList" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="394" height="166.5"/>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="127" id="ZSW-At-ydT" customClass="BaseTableViewCell" customModule="YouTubeList" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="394" height="127"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZSW-At-ydT" id="HPM-To-OAX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="166.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="127"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3m-iL-TM5">
-                                                                    <rect key="frame" x="119" y="37" width="255" height="118.5"/>
+                                                                    <rect key="frame" x="79" y="37" width="295" height="79"/>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -176,7 +176,7 @@
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lR-5k-Ih6">
-                                                                    <rect key="frame" x="119" y="11" width="255" height="21"/>
+                                                                    <rect key="frame" x="79" y="11" width="295" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="254" id="cDx-9w-vj4"/>
                                                                     </constraints>
@@ -185,10 +185,10 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wXG-KK-c2X">
-                                                                    <rect key="frame" x="10" y="10" width="90" height="90"/>
+                                                                    <rect key="frame" x="10" y="10" width="50" height="50.5"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="90" id="Qg4-iq-tjf"/>
-                                                                        <constraint firstAttribute="height" constant="90" id="q4o-Yp-DNl"/>
+                                                                        <constraint firstAttribute="width" constant="50" id="Qg4-iq-tjf"/>
+                                                                        <constraint firstAttribute="height" constant="50" id="q4o-Yp-DNl"/>
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>

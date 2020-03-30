@@ -22,7 +22,7 @@ class DetailVC: UIViewController, LoadImage {
     fileprivate let network: NetworkService = .shared
     
     var video : Video?
-    var listComment = [Comment]()
+    fileprivate var listComment = [Comment]()
     
     private var nextPageCommentToken : String = ""
     private var switchLoadNewCooment = false
@@ -80,10 +80,9 @@ class DetailVC: UIViewController, LoadImage {
         
     }
     
-    
     func setCooments(_ currentItem : [Comment]) {
         
-        self.listComment += currentItem
+        listComment += currentItem
         
         DispatchQueue.main.async {
             self.commentTableView.reloadData()
@@ -91,7 +90,6 @@ class DetailVC: UIViewController, LoadImage {
         }
         
     }
-    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
@@ -106,7 +104,8 @@ class DetailVC: UIViewController, LoadImage {
     
     @IBAction func playVideo(_ sender: Any) {
         
-        // Loaded video by apple
+        // Used pre-loaded video by apple because usage youtube framework or WebKit forbidden by specification.
+        // https://developers.google.com/youtube/iframe_api_reference
         let stringUrl = "https://devstreaming-cdn.apple.com/videos/tutorials/TestFlight_App_Store_Connect_2018/hls_vod_mvp.m3u8"
         guard let url = URL(string: stringUrl) else { return }
         

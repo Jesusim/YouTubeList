@@ -14,15 +14,15 @@ class ListTableVC: UITableViewController, UISearchBarDelegate, SetIndicator {
     
     fileprivate let network: NetworkService = .shared
     let refreshView = UIRefreshControl()
-
+    
     var list = [Video]()
     private var nextPageToken : String = ""
     private var searchText : String = ""
     private var total : Int?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationItem.title = StringResource.titleList
         setSearchVC()
         setRefresher()
@@ -49,22 +49,22 @@ class ListTableVC: UITableViewController, UISearchBarDelegate, SetIndicator {
         tableView.reloadData()
         refreshView.endRefreshing()
     }
-
+    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return list.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BaseTableViewCell
-
+        
         cell.titleBaseLable.text = list[indexPath.row].snippet.title
         cell.textBaseView.text = list[indexPath.row].snippet.description
         cell.backgroundColor = .clear
@@ -74,7 +74,7 @@ class ListTableVC: UITableViewController, UISearchBarDelegate, SetIndicator {
         getImageByURl(url: url) { (image) in
             cell.imageBaseView.image = image
         }
-  
+        
         return cell
     }
     
@@ -99,15 +99,15 @@ class ListTableVC: UITableViewController, UISearchBarDelegate, SetIndicator {
         
         network.searchVideo(searchText: searchText, nextPageToken: self.nextPageToken) { (response , error) in
             
-            if let currentError = error {
+            if error != nil {
                 
-                ErrorService.shared.setError(viewController: self, titelError: StringResource.error, messageError: currentError.localizedDescription)
+                ErrorService.shared.setError(viewController: self, titelError: StringResource.error, messageError: error?.localizedDescription)
                 
             } else {
-
+                
                 guard let currentResponse = response else { return }
                 self.setResponseElment(response: currentResponse, searchText: searchText)
-
+                
             }
             
             self.removeActivityIndicator()

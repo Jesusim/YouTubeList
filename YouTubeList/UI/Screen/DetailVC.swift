@@ -132,6 +132,7 @@ class DetailVC: UIViewController, SetIndicator {
     
 }
 
+// MARK: - Extension tableView
 extension DetailVC : UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {

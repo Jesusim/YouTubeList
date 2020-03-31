@@ -16,21 +16,21 @@ class AnswerCommentTableVC: UITableViewController, SetIndicator {
     var parentId : String?
     private var nextAswerCommentsPageToken : String = ""
     fileprivate var listAnswerComment = [Comment]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = StringResource.titelAnswerComment
         loadAswerComments()
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return listAnswerComment.count
@@ -50,7 +50,13 @@ class AnswerCommentTableVC: UITableViewController, SetIndicator {
         
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == listAnswerComment.count - 1 && listAnswerComment.count >= 50 && nextAswerCommentsPageToken != "" {
+            loadAswerComments()
+        }
+    }
+    
     
     func loadAswerComments() {
         
@@ -83,12 +89,6 @@ class AnswerCommentTableVC: UITableViewController, SetIndicator {
         listAnswerComment += currentItem
         removeActivityIndicator()
         tableView.reloadData()
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == listAnswerComment.count - 1 && listAnswerComment.count >= 50 && nextAswerCommentsPageToken != "" {
-            loadAswerComments()
-        }
     }
     
 }

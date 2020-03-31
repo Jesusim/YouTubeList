@@ -14,12 +14,31 @@ final class NetworkService {
     private init() {}
     
     private let baseURL = "https://www.googleapis.com/youtube/v3/"
+    // If one key not work use another
     private let apiKey = "AIzaSyAuh39-YurQ2O56RC2tCBg2oaoWXCdZrWQ"//"AIzaSyAx45WrlyGIKUNpRFnxfHPD2ueJku2aBdU"
     
     typealias GenericCompletion<T> = (T?, Error?) -> ()
     
     enum HttpRequestType : String {
         case Get = "GET", Post = "POST"
+    }
+    
+    func getAnswersComment(parentId: String = "", nextPageToken: String = "", _ completion : GenericCompletion<CommentThreads>?) {
+        
+        let linkUrl = "comments"
+        
+        let parametrs = ["part" : "snippet",
+                         "maxResults": 50,
+                         "parentId": parentId,
+                         "pageToken": nextPageToken,
+                         "textFormat" : "plainText",
+                         "key" : apiKey] as [String : Any]
+        
+        request(url: linkUrl, parametrs: convertParametrs(parametrs)) { (item : CommentThreads?, error) in
+            DispatchQueue.main.async {
+                completion?(item, error)
+            }
+        }
     }
     
     func getComments(videoId : String, nextPageToken: String = "", _ completion : GenericCompletion<CommentThreads>?) {
@@ -47,7 +66,7 @@ final class NetworkService {
         guard let encodingUrl = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         
         let parametrs = ["part" : "snippet",
-                         "order" : "title",
+                         "order" : "viewCount",
                          "type" : "video",
                          "pageToken": nextPageToken,
                          "maxResults" : 20,

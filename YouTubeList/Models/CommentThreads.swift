@@ -26,6 +26,11 @@ struct Comment : Codable {
 struct CommentSnippet : Codable {
     let videoId : String?
     let topLevelComment : TopComment?
+    
+    //  This fields are used in getAnswerComment
+    let authorDisplayName : String?
+    let authorProfileImageUrl : String?
+    let textDisplay : String?
 }
 
 struct TopComment : Codable {
@@ -35,6 +40,7 @@ struct TopComment : Codable {
     let snippet : UserInfoDSnippet?
 }
 
+// Tread comment fields
 struct UserInfoDSnippet : Codable {
     
     let authorDisplayName : String?

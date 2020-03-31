@@ -1,21 +1,17 @@
 //
-//  LoadImage.swift
+//  ViewController.swift
 //  YouTubeList
 //
-//  Created by Admin on 3/27/20.
+//  Created by Admin on 3/30/20.
 //  Copyright © 2020 BadJesus. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-protocol LoadImage {
-    func getImageByURl(url : String, _ completion : @escaping (UIImage)->())
-    func getDataByURL(url : String) -> Data
-}
+//// Load image
+extension UIViewController {
 
-extension LoadImage {
-    
     func getImageByURl(url : String, _ completion : @escaping (UIImage)->())  {
         DispatchQueue.global().async {
             if let image = UIImage(data: self.getDataByURL(url: url)) {
@@ -25,7 +21,7 @@ extension LoadImage {
             }
         }
     }
-    
+
     func getDataByURL(url : String) -> Data {
         guard
             let url = URL(string: url),
@@ -33,5 +29,5 @@ extension LoadImage {
             else { return Data() }
         return data
     }
-    
+
 }

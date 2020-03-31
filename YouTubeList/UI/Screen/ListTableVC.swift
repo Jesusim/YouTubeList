@@ -8,24 +8,21 @@
 
 import UIKit
 
-class ListTableVC: UITableViewController, UISearchBarDelegate, LoadImage {
+class ListTableVC: UITableViewController, UISearchBarDelegate, SetIndicator {
+    
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     fileprivate let network: NetworkService = .shared
     let refreshView = UIRefreshControl()
-    
-    lazy private var activityIndicator : UIActivityIndicatorView = {
-        let rect = CGRect(x: 0, y: 0, width: 50, height: 50)
-        return UIActivityIndicatorView(frame: rect)
-    }()
     
     var list = [Video]()
     private var nextPageToken : String = ""
     private var searchText : String = ""
     private var total : Int?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationItem.title = StringResource.titleList
         setSearchVC()
         setRefresher()
@@ -52,32 +49,32 @@ class ListTableVC: UITableViewController, UISearchBarDelegate, LoadImage {
         tableView.reloadData()
         refreshView.endRefreshing()
     }
-
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return list.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! VideoCell
-
-        cell.title.text = list[indexPath.row].snippet.title
-        cell.descriptionVideo.text = list[indexPath.row].snippet.description
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BaseTableViewCell
+        
+        cell.titleBaseLable.text = list[indexPath.row].snippet.title
+        cell.textBaseView.text = list[indexPath.row].snippet.description
+        cell.backgroundColor = .clear
         
         guard let url = self.list[indexPath.row].snippet.thumbnails?.medium?.url else { return cell }
         
         getImageByURl(url: url) { (image) in
-            cell.imageThumbnail.image = image
+            cell.imageBaseView.image = image
         }
-  
+        
         return cell
     }
     
@@ -98,19 +95,19 @@ class ListTableVC: UITableViewController, UISearchBarDelegate, LoadImage {
     // MARK: - Load new items
     private func loadList(searchText : String) {
         
-        addActivityIndicator()
+        addActivityIndicator(tableView: tableView)
         
         network.searchVideo(searchText: searchText, nextPageToken: self.nextPageToken) { (response , error) in
             
-            if let currentError = error {
+            if error != nil {
                 
-                ErrorService.shared.setError(viewController: self, titelError: StringResource.error, messageError: currentError.localizedDescription)
+                ErrorService.shared.setError(viewController: self, titelError: StringResource.error, messageError: error?.localizedDescription)
                 
             } else {
-
+                
                 guard let currentResponse = response else { return }
                 self.setResponseElment(response: currentResponse, searchText: searchText)
-
+                
             }
             
             self.removeActivityIndicator()
@@ -136,22 +133,11 @@ class ListTableVC: UITableViewController, UISearchBarDelegate, LoadImage {
             self.list += item
         } else {
             self.list = item
+            nextPageToken = ""
         }
     }
     
-    // MARK: - Indicator
-    private func addActivityIndicator() {
-        activityIndicator.color = .red
-        activityIndicator.startAnimating()
-        tableView.backgroundView = activityIndicator
-    }
-    
-    private func removeActivityIndicator() {
-        activityIndicator.stopAnimating()
-        activityIndicator.removeFromSuperview()
-    }
-    
-    // MARK: prepare
+    // MARK: Prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
         let detailVC = segue.destination as? DetailVC

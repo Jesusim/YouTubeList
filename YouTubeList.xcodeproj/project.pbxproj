@@ -10,7 +10,6 @@
 		843CE01F242B857500B88638 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE01E242B857500B88638 /* AppDelegate.swift */; };
 		843CE021242B857500B88638 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE020242B857500B88638 /* SceneDelegate.swift */; };
 		843CE026242B857600B88638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843CE024242B857600B88638 /* Main.storyboard */; };
-		843CE029242B857600B88638 /* YouTubeList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 843CE027242B857600B88638 /* YouTubeList.xcdatamodeld */; };
 		843CE02B242B858000B88638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843CE02A242B858000B88638 /* Assets.xcassets */; };
 		843CE02E242B858000B88638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843CE02C242B858000B88638 /* LaunchScreen.storyboard */; };
 		843CE039242B858100B88638 /* YouTubeListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE038242B858100B88638 /* YouTubeListTests.swift */; };
@@ -20,12 +19,13 @@
 		843CE05C242C876A00B88638 /* ListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE05B242C876A00B88638 /* ListTableVC.swift */; };
 		843CE05E242C87DC00B88638 /* StringResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE05D242C87DC00B88638 /* StringResource.swift */; };
 		843CE060242C8C6C00B88638 /* ErrorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE05F242C8C6C00B88638 /* ErrorService.swift */; };
-		843CE064242C90AC00B88638 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE063242C90AC00B88638 /* VideoCell.swift */; };
 		843CE066242C9E1C00B88638 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE065242C9E1B00B88638 /* DetailVC.swift */; };
+		84C6E9FF2431B98900902585 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6E9FE2431B98900902585 /* BaseTableViewCell.swift */; };
 		84EF9407242DEA0100713326 /* CommentThreads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF9406242DEA0100713326 /* CommentThreads.swift */; };
-		84EF9409242E20C200713326 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF9408242E20C200713326 /* CommentCell.swift */; };
-		84EF940B242E334400713326 /* LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF940A242E334300713326 /* LoadImage.swift */; };
 		84EF940E242E445D00713326 /* SelfSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF940D242E445C00713326 /* SelfSizedTableView.swift */; };
+		84F0B30A2431EE3A002A4E4C /* SetIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0B3092431EE3A002A4E4C /* SetIndicator.swift */; };
+		84F0B30E24321514002A4E4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0B30D24321514002A4E4C /* ViewController.swift */; };
+		84F0B3102432261A002A4E4C /* AnswerCommentTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0B30F2432261A002A4E4C /* AnswerCommentTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,6 @@
 		843CE01E242B857500B88638 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		843CE020242B857500B88638 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		843CE025242B857600B88638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		843CE028242B857600B88638 /* YouTubeList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YouTubeList.xcdatamodel; sourceTree = "<group>"; };
 		843CE02A242B858000B88638 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		843CE02D242B858000B88638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		843CE02F242B858000B88638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,12 +64,13 @@
 		843CE05B242C876A00B88638 /* ListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableVC.swift; sourceTree = "<group>"; };
 		843CE05D242C87DC00B88638 /* StringResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringResource.swift; sourceTree = "<group>"; };
 		843CE05F242C8C6C00B88638 /* ErrorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorService.swift; sourceTree = "<group>"; };
-		843CE063242C90AC00B88638 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		843CE065242C9E1B00B88638 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		84C6E9FE2431B98900902585 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		84EF9406242DEA0100713326 /* CommentThreads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentThreads.swift; sourceTree = "<group>"; };
-		84EF9408242E20C200713326 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
-		84EF940A242E334300713326 /* LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImage.swift; sourceTree = "<group>"; };
 		84EF940D242E445C00713326 /* SelfSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedTableView.swift; sourceTree = "<group>"; };
+		84F0B3092431EE3A002A4E4C /* SetIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetIndicator.swift; sourceTree = "<group>"; };
+		84F0B30D24321514002A4E4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		84F0B30F2432261A002A4E4C /* AnswerCommentTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCommentTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +121,7 @@
 		843CE01D242B857500B88638 /* YouTubeList */ = {
 			isa = PBXGroup;
 			children = (
+				84F0B30B243214DE002A4E4C /* Extension */,
 				843CE058242C86B200B88638 /* Configuration */,
 				843CE059242C86EF00B88638 /* Resources */,
 				843CE054242BA3AA00B88638 /* Models */,
@@ -129,7 +130,6 @@
 				843CE05A242C872100B88638 /* Storyboards */,
 				843CE02C242B858000B88638 /* LaunchScreen.storyboard */,
 				843CE02F242B858000B88638 /* Info.plist */,
-				843CE027242B857600B88638 /* YouTubeList.xcdatamodeld */,
 			);
 			path = YouTubeList;
 			sourceTree = "<group>";
@@ -166,7 +166,6 @@
 			children = (
 				843CE055242BA3CC00B88638 /* YouTubeList.swift */,
 				84EF9406242DEA0100713326 /* CommentThreads.swift */,
-				84EF940A242E334300713326 /* LoadImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,6 +175,7 @@
 			children = (
 				843CE05B242C876A00B88638 /* ListTableVC.swift */,
 				843CE065242C9E1B00B88638 /* DetailVC.swift */,
+				84F0B30F2432261A002A4E4C /* AnswerCommentTableVC.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -219,8 +219,7 @@
 		843CE062242C907F00B88638 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				843CE063242C90AC00B88638 /* VideoCell.swift */,
-				84EF9408242E20C200713326 /* CommentCell.swift */,
+				84C6E9FE2431B98900902585 /* BaseTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -231,6 +230,23 @@
 				84EF940D242E445C00713326 /* SelfSizedTableView.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		84F0B30B243214DE002A4E4C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				84F0B30C243214E6002A4E4C /* UI */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		84F0B30C243214E6002A4E4C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				84F0B3092431EE3A002A4E4C /* SetIndicator.swift */,
+				84F0B30D24321514002A4E4C /* ViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,20 +380,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F0B30E24321514002A4E4C /* ViewController.swift in Sources */,
 				843CE053242B872300B88638 /* NetworkService.swift in Sources */,
 				843CE056242BA3CC00B88638 /* YouTubeList.swift in Sources */,
-				843CE064242C90AC00B88638 /* VideoCell.swift in Sources */,
-				843CE029242B857600B88638 /* YouTubeList.xcdatamodeld in Sources */,
 				843CE05C242C876A00B88638 /* ListTableVC.swift in Sources */,
 				843CE066242C9E1C00B88638 /* DetailVC.swift in Sources */,
+				84F0B3102432261A002A4E4C /* AnswerCommentTableVC.swift in Sources */,
 				84EF9407242DEA0100713326 /* CommentThreads.swift in Sources */,
 				843CE01F242B857500B88638 /* AppDelegate.swift in Sources */,
 				843CE05E242C87DC00B88638 /* StringResource.swift in Sources */,
 				843CE021242B857500B88638 /* SceneDelegate.swift in Sources */,
 				843CE060242C8C6C00B88638 /* ErrorService.swift in Sources */,
 				84EF940E242E445D00713326 /* SelfSizedTableView.swift in Sources */,
-				84EF940B242E334400713326 /* LoadImage.swift in Sources */,
-				84EF9409242E20C200713326 /* CommentCell.swift in Sources */,
+				84F0B30A2431EE3A002A4E4C /* SetIndicator.swift in Sources */,
+				84C6E9FF2431B98900902585 /* BaseTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,19 +722,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		843CE027242B857600B88638 /* YouTubeList.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				843CE028242B857600B88638 /* YouTubeList.xcdatamodel */,
-			);
-			currentVersion = 843CE028242B857600B88638 /* YouTubeList.xcdatamodel */;
-			path = YouTubeList.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 843CE013242B857500B88638 /* Project object */;
 }

@@ -10,7 +10,6 @@
 		843CE01F242B857500B88638 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE01E242B857500B88638 /* AppDelegate.swift */; };
 		843CE021242B857500B88638 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE020242B857500B88638 /* SceneDelegate.swift */; };
 		843CE026242B857600B88638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843CE024242B857600B88638 /* Main.storyboard */; };
-		843CE029242B857600B88638 /* YouTubeList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 843CE027242B857600B88638 /* YouTubeList.xcdatamodeld */; };
 		843CE02B242B858000B88638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843CE02A242B858000B88638 /* Assets.xcassets */; };
 		843CE02E242B858000B88638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843CE02C242B858000B88638 /* LaunchScreen.storyboard */; };
 		843CE039242B858100B88638 /* YouTubeListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE038242B858100B88638 /* YouTubeListTests.swift */; };
@@ -51,7 +50,6 @@
 		843CE01E242B857500B88638 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		843CE020242B857500B88638 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		843CE025242B857600B88638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		843CE028242B857600B88638 /* YouTubeList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YouTubeList.xcdatamodel; sourceTree = "<group>"; };
 		843CE02A242B858000B88638 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		843CE02D242B858000B88638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		843CE02F242B858000B88638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 				843CE05A242C872100B88638 /* Storyboards */,
 				843CE02C242B858000B88638 /* LaunchScreen.storyboard */,
 				843CE02F242B858000B88638 /* Info.plist */,
-				843CE027242B857600B88638 /* YouTubeList.xcdatamodeld */,
 			);
 			path = YouTubeList;
 			sourceTree = "<group>";
@@ -386,7 +383,6 @@
 				84F0B30E24321514002A4E4C /* ViewController.swift in Sources */,
 				843CE053242B872300B88638 /* NetworkService.swift in Sources */,
 				843CE056242BA3CC00B88638 /* YouTubeList.swift in Sources */,
-				843CE029242B857600B88638 /* YouTubeList.xcdatamodeld in Sources */,
 				843CE05C242C876A00B88638 /* ListTableVC.swift in Sources */,
 				843CE066242C9E1C00B88638 /* DetailVC.swift in Sources */,
 				84F0B3102432261A002A4E4C /* AnswerCommentTableVC.swift in Sources */,
@@ -726,19 +722,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		843CE027242B857600B88638 /* YouTubeList.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				843CE028242B857600B88638 /* YouTubeList.xcdatamodel */,
-			);
-			currentVersion = 843CE028242B857600B88638 /* YouTubeList.xcdatamodel */;
-			path = YouTubeList.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 843CE013242B857500B88638 /* Project object */;
 }
